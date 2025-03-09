@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyScope - Check The Weather</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-section">
+                <a href="#">
+                    <img src="assets/logo.png" alt="SkyScope Logo">
+                </a>
+                <a href="/"><span>Sky</span>Scope</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>  
+        <div class="weather-box-section">
+            <div class="weather-box">
+                <div class="current-weather-section">
+                    <div class="search-section-container">
+                        <h1 class="date" id="current-date"></h1>
+                        <form class="search-section" id="weather-form">
+                            <input type="text" id="city-input" class="search-input" placeholder="Search city..." />
+                            <button type="submit" class="search-button">
+                                Search
+                            </button>
+                        </form>
+                        <h1 class="mobile-date" id="mobile-date"></h1>
+                    </div>
+                    <div class="current-weather-box">
+                        <div class="weather-now">
+                            <img src="" alt="Weather icon" id="weather-icon">
+                            <div class="temperature-box">
+                                <span class="temperature" id="temp"></span>
+                                <span class="city-name" id="city-name"></span>
+                            </div>
+                        </div>
+                        <div class="weather-conditions">
+                            <div class="condition-item">
+                                <img src="/assets/conditions-icons/thermometer.png" alt="Thermometer icon">
+                                <span id="perceived-temperature"></span>
+                            </div>
+                            <div class="condition-item">
+                                <img src="/assets/conditions-icons/air_pressure.png" alt="Pressure Icon">
+                                <span id="pressure"></span>
+                            </div>
+                            <div class="condition-item">
+                                <img src="/assets/conditions-icons/humidity.png" alt="Humidity icon">
+                                <span id="humidity"></span>
+                            </div>
+                            <div class="condition-item">
+                                <img src="/assets/conditions-icons/wind.png" alt="Wind Icon">
+                                <span id="wind"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="future-weather-section">
+                    <div class="forecast-box">
+                        <h1>Weather Forecast</h1>
+                        <marquee>
+                            <span>Wildfire Forces School Evacuation</span>
+                            <span>
+                                Fiery Eruption at Hawaii's Kilauea Volcano
+                            </span>
+                            <span>
+                                Large Chunk Of Ice Smashes Florida Roof
+                            </span>
+                        </marquee>
+                    </div>
+                    <div class="future-weather-box">
+                        <div class="future-day-box">
+                            <img src="" alt="Forecast weather icon" class="forecast-icon">
+                            <div class="future-temperature-box">
+                                <span class="future-temperature"></span>
+                                <span class="future-day"></span>
+                            </div>
+                        </div>
+                        <div class="future-day-box">
+                            <img src="" alt="Forecast weather icon" class="forecast-icon">
+                            <div class="future-temperature-box">
+                                <span class="future-temperature"></span>
+                                <span class="future-day"></span>
+                            </div>
+                        </div>
+                        <div class="future-day-box">
+                            <img src="" alt="Forecast weather icon" class="forecast-icon">
+                            <div class="future-temperature-box">
+                                <span class="future-temperature"></span>
+                                <span class="future-day"></span>
+                            </div>
+                        </div>
+                        <div class="future-day-box">
+                            <img src="" alt="Forecast weather icon" class="forecast-icon">
+                            <div class="future-temperature-box">
+                                <span class="future-temperature"></span>
+                                <span class="future-day"></span>
+                            </div>
+                        </div>
+                        <div class="future-day-box">
+                            <img src="" alt="Forecast weather icon" class="forecast-icon">
+                            <div class="future-temperature-box">
+                                <span class="future-temperature"></span>
+                                <span class="future-day"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span class="footer-text">
+            2025 &copy; SkyScope All Rights Reserved
+        </span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

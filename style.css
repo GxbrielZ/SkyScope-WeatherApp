@@ -1,0 +1,378 @@
+:root {
+    --black: #323643;
+    --darkBlack: #22252e;
+    --blue: #93deff;
+    --white: #f7f7f7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--white);
+}
+
+/* Navbar */
+.navbar {
+    height: 6vh;
+    display: grid;
+    background-color: var(--black);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    padding-left: 1.2rem;
+    gap: 5px;
+}
+
+.logo-section img {
+    width: 2.3rem;
+}
+
+.logo-section a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.logo-section a span {
+    color: var(--blue);
+}
+
+/* Main */
+main {
+    height: 89vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/assets/sun.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0,0,0,0.1);
+    background-blend-mode: darken;
+    z-index: 1;
+}
+
+/* Weather box */
+.weather-box {
+    width: 1000px;
+    padding: 2rem;
+    background-color: var(--black);
+    border-radius: 30px;
+    box-shadow: 10px black;
+}
+
+.search-section-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-section {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    width: 390px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid black;
+    border-radius: 20px;
+    color: var(--black);
+}
+
+.search-input:focus {
+    outline: 2px solid #93deff;
+}
+
+.search-input.error {
+    outline: 2px solid rgb(241, 71, 71);
+}
+
+.search-input.error:focus {
+    outline: 2px solid rgb(241, 71, 71);
+}
+
+.search-button {
+    padding: 0.5rem 1.2rem;
+    font-size: 1.1rem;
+    border: 1px solid black;
+    border-radius: 20px;
+    color: var(--black);
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #79c6eb;
+    transition: 0.5s;
+}
+
+.mobile-date {
+    display: none;
+}
+
+.current-weather-section h1, .future-weather-section h1 {
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.current-weather-box {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 200px;
+    height: 250px;
+    margin-bottom: 2rem;
+}
+
+.weather-now {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.weather-now img {
+    width: 150px;
+}
+
+.temperature-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.temperature  {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.city-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Weather conditions */
+.weather-conditions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.condition-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.condition-item img {
+    width: 30px;
+}
+
+/* Future forecast */
+.forecast-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.forecast-box h1 {
+    flex-basis: 45%;
+    margin: 0;
+}
+
+.forecast-box marquee span {
+    margin-right: 200px;
+    font-size: 1.1rem;
+    color: var(--blue);
+}
+
+.forecast-box marquee span:last-child {
+    margin-right: 0px;
+}
+
+.future-weather-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    height: 120px;
+}
+
+.future-day-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.future-day-box img {
+    width: 50px;
+}
+
+.future-temperature-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.future-temperature  {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.future-day {
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1024px) {
+    .weather-box {
+        max-width: 700px;
+    }
+
+    .search-input {
+        max-width: 220px;
+    }
+
+    .current-weather-box {
+        gap: 60px;
+    }
+
+    .weather-now {
+        gap: 10px;
+    }
+
+    .weather-conditions {
+        font-size: 1.2rem;
+    }
+    
+    .condition-item img {
+        width: 28px;
+    }
+
+    .forecast-box h1 {
+        flex-basis: 75%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        height: auto;
+        padding: 0.3rem 0;
+    }
+
+    main {
+        height: auto;
+        padding: 20% 0;
+    }
+
+    .weather-box {
+        max-width: 380px;
+    }
+
+    .search-section-container {
+        flex-direction: column;
+    }
+
+    .search-section {
+        justify-content: center;
+    }
+
+    .date {
+        display: none;
+    }
+
+    .mobile-date {
+        display: block;
+        text-align: center;
+    }
+
+    .current-weather-box {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+
+    .weather-now {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .weather-now img {
+        width: 80px;
+    }
+    
+    .temperature  {
+        font-size: 2rem;
+    }
+    
+    .city-name {
+        font-size: 1.1rem;
+    }
+    
+    .weather-conditions {
+        font-size: 1.1rem;
+        padding-left: 1.2rem;
+    }
+
+    .condition-item img {
+        width: 20px;
+    }
+
+    .forecast-box {
+        flex-direction: column;
+        margin-bottom: 0rem;
+    }
+
+    .forecast-box h1 {
+        margin: 0 0 1rem 0;
+    }
+
+    .future-weather-box {
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 1rem;
+    }
+    
+    
+    .future-day-box img {
+        width: 35px;
+    }
+    
+    
+    .future-temperature  {
+        font-size: 1.3rem;
+    }
+
+    footer {
+        height: auto;
+        padding: 1.1rem 0;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .weather-box {
+        max-width: 320px;
+    }
+
+    .search-input {
+        width: 180px;
+    }
+
+    .future-weather-box {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 2rem;
+    }
+}
