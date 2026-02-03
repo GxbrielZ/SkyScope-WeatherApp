@@ -55,21 +55,37 @@ weatherForm.addEventListener("submit", async event => {
     event.preventDefault();
 
     const city = cityInput.value;
+    const submitBtn = document.querySelector(".search-button");
     
     if (city) {
-        try {
-            const weatherData = await getWeatherData(city);
-            displayWeatherInfo(weatherData);
+        submitBtn.textContent = "Searching...";
+        submitBtn.disabled = true;
 
-            cityInput.classList.remove("error");
-            errorMessage.classList.remove("visible");
-            errorMessage.textContent = "";
+        cityInput.classList.remove("error");
+        errorMessage.classList.remove("visible");
+        errorMessage.textContent = "";
+
+        try {
+            const minLoadingTime = new Promise(resolve => setTimeout(resolve, 600));
+            const weatherRequest = getWeatherData(city);
+            const results = await Promise.allSettled([minLoadingTime, weatherRequest]);
+            const apiResult = results[1];
+
+            if (apiResult.status === "rejected") {
+                throw apiResult.reason;
+            }
+
+            const weatherData = apiResult.value;
+            displayWeatherInfo(weatherData);
         } catch(error) {
             console.error(error);
-            cityInput.classList.add("error");
 
+            cityInput.classList.add("error");
             errorMessage.textContent = "City not found - try again.";
             errorMessage.classList.add("visible");
+        } finally {
+            submitBtn.textContent = "Search";
+            submitBtn.disabled = false;
         }
     } else {
         console.log("Please enter correct city name.");

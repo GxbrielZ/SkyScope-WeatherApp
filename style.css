@@ -110,11 +110,24 @@ main {
     color: var(--black);
     background-color: var(--blue);
     cursor: pointer;
+    min-width: 120px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
 .search-button:hover {
     background-color: #79c6eb;
     transition: 0.5s;
+}
+
+.search-button:active {
+    transform: scale(0.95);
+}
+
+.search-button:disabled {
+    background-color: #ccc;
+    cursor: wait;
+    border-color: #999;
 }
 
 .error-text {
