@@ -395,10 +395,17 @@ footer {
     .forecast-box {
         flex-direction: column;
         margin-bottom: 0rem;
+        overflow: hidden;
     }
 
     .forecast-box h1 {
         margin: 0 0 1rem 0;
+    }
+
+    .ticker-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
     }
 
     .future-weather-box {
