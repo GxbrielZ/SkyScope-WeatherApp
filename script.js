@@ -204,24 +204,24 @@ function getWeatherEmoji(weatherId, timestamp, sunrise, sunset, isForecast = fal
 
     switch (true) {
         case (weatherId >= 200 && weatherId < 300):
-            return "/assets/weather-icons/thunderstorm.png";
+            return "assets/weather-icons/thunderstorm.png";
         case (weatherId >= 300 && weatherId < 500):
-            return "/assets/weather-icons/shower_rain.png";
+            return "assets/weather-icons/shower_rain.png";
         case (weatherId >= 500 && weatherId < 600):
-            return isDay ? "/assets/weather-icons/rain_day.png" : "/assets/weather-icons/rain_night.png";
+            return isDay ? "assets/weather-icons/rain_day.png" : "assets/weather-icons/rain_night.png";
         case (weatherId >= 600 && weatherId < 611):
-            return isDay ? "/assets/weather-icons/snow_day.png" : "/assets/weather-icons/snow_night.png";
+            return isDay ? "assets/weather-icons/snow_day.png" : "assets/weather-icons/snow_night.png";
         case (weatherId >= 611 && weatherId < 701):
-            return "/assets/weather-icons/snow_rain.png";
+            return "assets/weather-icons/snow_rain.png";
         case (weatherId >= 701 && weatherId < 800):
-            return isDay ? "/assets/weather-icons/mist_day.png" : "/assets/weather-icons/mist_night.png";
+            return isDay ? "assets/weather-icons/mist_day.png" : "assets/weather-icons/mist_night.png";
         case (weatherId === 800):
-            return isDay ? "/assets/weather-icons/clear_sky_day.png" : "/assets/weather-icons/clear_sky_night.png";
+            return isDay ? "assets/weather-icons/clear_sky_day.png" : "assets/weather-icons/clear_sky_night.png";
         case (weatherId === 801):
-            return isDay ? "/assets/weather-icons/few_clouds_day.png" : "/assets/weather-icons/few_clouds_night.png";
+            return isDay ? "assets/weather-icons/few_clouds_day.png" : "assets/weather-icons/few_clouds_night.png";
         case (weatherId >= 802 && weatherId <= 804):
-            return "/assets/weather-icons/clouds.png";
+            return "assets/weather-icons/clouds.png";
         default:
-            return isDay ? "/assets/weather-icons/clear_sky_day.png" : "/assets/weather-icons/clear_sky_night.png";
+            return isDay ? "assets/weather-icons/clear_sky_day.png" : "assets/weather-icons/clear_sky_night.png";
     }
 }

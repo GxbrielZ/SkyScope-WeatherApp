@@ -46,7 +46,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/assets/sun.jpg");
+    background-image: url("assets/sun.jpg");
     background-size: cover;
     background-position: center;
     background-color: rgba(0,0,0,0.1);
