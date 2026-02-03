@@ -70,8 +70,15 @@ main {
 
 .search-section {
     display: flex;
-    gap: 0.7rem;
+    flex-direction: column;
+    align-items: flex-end;
     margin-bottom: 2rem;
+    position: relative;
+}
+
+.search-inputs-row {
+    display: flex;
+    gap: 0.7rem;
 }
 
 .search-input {
@@ -108,6 +115,22 @@ main {
 .search-button:hover {
     background-color: #79c6eb;
     transition: 0.5s;
+}
+
+.error-text {
+    color: rgb(241, 71, 71);
+    font-size: 0.9rem;
+    height: 1.2rem;
+    margin-top: 15px;
+    text-align: right;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+    width: 100%;
+}
+
+.error-text.visible {
+    opacity: 1;
 }
 
 .mobile-date {
@@ -186,14 +209,34 @@ main {
     margin: 0;
 }
 
-.forecast-box marquee span {
-    margin-right: 200px;
-    font-size: 1.1rem;
-    color: var(--blue);
+.ticker-wrapper {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
 
-.forecast-box marquee span:last-child {
-    margin-right: 0px;
+.ticker-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 25s linear infinite;
+}
+
+.ticker-content span {
+    margin-right: 100px;
+    font-size: 1.1rem;
+    color: var(--blue);
+    display: inline-block;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .future-weather-box {
@@ -289,7 +332,11 @@ footer {
     }
 
     .search-section {
-        justify-content: center;
+        align-items: center;
+    }
+
+    .error-text {
+        text-align: center;
     }
 
     .date {

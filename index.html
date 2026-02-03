@@ -27,10 +27,12 @@
                     <div class="search-section-container">
                         <h1 class="date" id="current-date"></h1>
                         <form class="search-section" id="weather-form">
-                            <input type="text" id="city-input" class="search-input" placeholder="Search city..." />
-                            <button type="submit" class="search-button">
-                                Search
-                            </button>
+                            <div class="search-inputs-row">
+                                <input type="text" id="city-input" class="search-input" placeholder="Search city..." />
+                                <button type="submit" class="search-button">Search</button>
+                            </div>
+
+                            <p id="error-message" class="error-text"></p>
                         </form>
                         <h1 class="mobile-date" id="mobile-date"></h1>
                     </div>
@@ -65,15 +67,16 @@
                 <div class="future-weather-section">
                     <div class="forecast-box">
                         <h1>Weather Forecast</h1>
-                        <marquee>
-                            <span>Wildfire Forces School Evacuation</span>
-                            <span>
-                                Fiery Eruption at Hawaii's Kilauea Volcano
-                            </span>
-                            <span>
-                                Large Chunk Of Ice Smashes Florida Roof
-                            </span>
-                        </marquee>
+                        <div class="ticker-wrapper">
+                            <div class="ticker-content">
+                                <span>Wildfire Forces School Evacuation</span>
+                                <span>Fiery Eruption at Hawaii's Kilauea Volcano</span>
+                                <span>Large Chunk Of Ice Smashes Florida Roof</span>
+                                <span>Wildfire Forces School Evacuation</span>
+                                <span>Fiery Eruption at Hawaii's Kilauea Volcano</span>
+                                <span>Large Chunk Of Ice Smashes Florida Roof</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="future-weather-box">
                         <div class="future-day-box">
@@ -123,6 +126,7 @@
         </span>
     </footer>
 
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
