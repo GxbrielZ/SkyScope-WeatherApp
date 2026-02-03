@@ -25,7 +25,12 @@
      ```bash
      cd SkyScope-WeatherApp
      ```
-   - Open the `script.js` file and replace `"ENTER YOUR API KEY HERE!"` with your OpenWeather API key.
+   - Create `config.js` file and fill with this code:
+   ```bash
+    const CONFIG = {
+      API_KEY: 'Your OpenWeather API KEY'
+    };
+  ```
 
 3. **Run the Project**:
    - Open the `index.html` file in your preferred browser.
