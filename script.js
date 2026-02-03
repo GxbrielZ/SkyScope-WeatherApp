@@ -1,6 +1,7 @@
 const weatherForm = document.querySelector("#weather-form");
 const cityInput = document.querySelector("#city-input");
 const currentDate = document.querySelector("#current-date");
+const errorMessage = document.querySelector("#error-message");
 const mobileDate = document.querySelector("#mobile-date");
 const weatherIcon = document.querySelector("#weather-icon");
 const tempDisplay = document.querySelector("#temp");
@@ -10,32 +11,42 @@ const pressureDisplay = document.querySelector("#pressure");
 const humidityDisplay = document.querySelector("#humidity");
 const windDisplay = document.querySelector("#wind");
 
-const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
 const defaultCity = "Berlin";
 
 //API KEY
-const apiKey = "ENTER YOUR API KEY HERE!";
+let apiKey = "";
+
+function loadConfig() {
+    if (typeof CONFIG !== 'undefined') {
+        apiKey = CONFIG.API_KEY;
+    } else {
+        console.error("Nie znaleziono obiektu CONFIG -> brak API KEY.");
+    }
+}
 
 //DEFAULT DATA ON LOAD
 window.onload = async () => {
-    //CURRENT DATE DISPLAY
-    let today = new Date();
-    let dayName = weekDays[today.getDay()];
-    let todayString = dayName + ' '
-        +('0' + today.getDate()).slice(-2) + '.'
-        + ('0' + (today.getMonth() + 1)).slice(-2) + '.'
-        + today.getFullYear();
+    loadConfig();
 
-    currentDate.textContent = `${todayString}`;
-    mobileDate.textContent = `${todayString}`;
+    //CURRENT DATE DISPLAY
+    const today = new Date();
+    const dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
+    const dateString = today.toLocaleDateString('pl-PL', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    const fullDateString = `${dayName} ${dateString}`;
+
+    currentDate.textContent = fullDateString;
+    mobileDate.textContent = fullDateString;
 
     //WEATHER ON LOAD
     try {
         const weatherData = await getWeatherData(defaultCity);
         displayWeatherInfo(weatherData);
     } catch (error) {
-        console.error(error);
+        console.error("Błąd ładowania miasta: ", error);
     }
 };
 
@@ -51,9 +62,14 @@ weatherForm.addEventListener("submit", async event => {
             displayWeatherInfo(weatherData);
 
             cityInput.classList.remove("error");
+            errorMessage.classList.remove("visible");
+            errorMessage.textContent = "";
         } catch(error) {
             console.error(error);
             cityInput.classList.add("error");
+
+            errorMessage.textContent = "City not found - try again.";
+            errorMessage.classList.add("visible");
         }
     } else {
         console.log("Please enter correct city name.");
