@@ -30,10 +30,17 @@ window.onload = async () => {
 
     //WEATHER ON LOAD
     try {
-        const weatherData = await getWeatherData(defaultCity);
+        const ipResponse = await fetch('https://ipapi.co/json/');
+        const ipData = await ipResponse.json();
+        const userCity = ipData.city || defaultCity;
+
+        const weatherData = await getWeatherData(userCity);
         displayWeatherInfo(weatherData);
     } catch (error) {
-        console.error("Błąd ładowania miasta: ", error);
+        console.error("Błąd wykrywania lokalizacji, ładuję miasto domyślne: ", error);
+        
+        const fallbackWeatherData = await getWeatherData(defaultCity);
+        displayWeatherInfo(fallbackWeatherData);
     }
 };
 
