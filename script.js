@@ -13,21 +13,8 @@ const windDisplay = document.querySelector("#wind");
 
 const defaultCity = "Berlin";
 
-//API KEY
-let apiKey = "";
-
-function loadConfig() {
-    if (typeof CONFIG !== 'undefined') {
-        apiKey = CONFIG.API_KEY;
-    } else {
-        console.error("Nie znaleziono obiektu CONFIG -> brak API KEY.");
-    }
-}
-
 //DEFAULT DATA ON LOAD
 window.onload = async () => {
-    loadConfig();
-
     //CURRENT DATE DISPLAY
     const today = new Date();
     const dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
@@ -96,7 +83,7 @@ weatherForm.addEventListener("submit", async event => {
 });
 
 async function getWeatherData(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const apiUrl = `/api/weather?city=${city}`;
 
     const response = await fetch(apiUrl);
 
@@ -108,7 +95,7 @@ async function getWeatherData(city) {
 }
 
 async function getForecastData(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+    const apiUrl = `/api/forecast?city=${city}`;
 
     const response = await fetch(apiUrl);
 
@@ -143,8 +130,6 @@ function processForecastData(data) {
 }
 
 async function displayWeatherInfo(data) {
-    //console.log(data);
-
     const {
         name: city,
         main: { temp, feels_like, humidity, pressure },
